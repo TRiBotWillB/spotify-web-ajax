@@ -1,0 +1,43 @@
+{
+  "name": "spotify-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "build": "npm run build-ts && npm run build-ts-src && npm run copy-static-assets",
+    "build-ts": "tsc",
+    "build-ts-src": "tsc -p source",
+    "build-ts-public": "tsc -p source/public",
+    "watch-ts": "tsc -w",
+    "watch-ts-src": "tsc -w -p source",
+    "watch-ts-public": "tsc -w -p source/public",
+    "watch-node": "nodemon dist/index.js",
+    "watch": "concurrently \"npm run watch-ts \" \"npm run watch-ts-src\" \"npm run watch-node\" \"npm run watch-ts-public\"",
+    "copy-static-assets": "ts-node copyStaticAssets.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "spotify-web-app"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^13.11.0",
+    "mocha": "^7.1.1",
+    "ts-node": "^8.8.1",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.4",
+    "@types/jquery": "^3.3.34",
+    "@types/less-middleware": "^2.0.31",
+    "@types/shelljs": "^0.8.7",
+    "express": "^4.17.1",
+    "jquery": "^3.4.1",
+    "less-middleware": "^3.1.0",
+    "pug": "^2.0.4",
+    "shelljs": "^0.8.3"
+  }
+}
