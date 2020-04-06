@@ -1,8 +1,17 @@
 import SpotifyWebApi from "./SpotifyWebApi.js";
 
+declare global {
+    interface Window {
+        spotifyWebPlaybackSDKReady: boolean;
+    }
+}
+
+window.onSpotifyWebPlaybackSDKReady = () => {
+    window.spotifyWebPlaybackSDKReady = true;
+}
 
 $(function () {
-    console.log('Hehe', window.location.hash);
+    let api = new SpotifyWebApi("");
 
     if (window.location.hash) {
         let token = window.location.hash.substring(14, window.location.hash.indexOf('&'));
@@ -20,10 +29,14 @@ $(function () {
             }
         });
 
+        api.setAuthorizationToken(token);
+        api.play([
+            "spotify:track:6Ep6BzIOB9tz3P4sWqiiAB",
+            "spotify:track:4eLSCSELtKxZwXnFbNLXT5"
+        ]);
+
 
     }
-
-    let api = new SpotifyWebApi("");
 
     $('#login').on('click', (e) => {
         e.preventDefault();
