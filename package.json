@@ -36,7 +36,7 @@
     "@types/shelljs": "^0.8.7",
     "@types/spotify-web-playback-sdk": "^0.1.7",
     "express": "^4.17.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "less-middleware": "^3.1.0",
     "pug": "^2.0.4",
     "shelljs": "^0.8.3"
